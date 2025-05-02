@@ -13,7 +13,7 @@ function Filters ({ setSelect , setSort , search , setSearch }: Filter) {
                 <button onClick={() => setSelect("electronics")}>Electronics</button>
                 <button onClick={() => setSelect("all")} >All</button>
             </details>
-            <input type="text" value={search} onChange={(event) => setSearch(event.target.value)}  />
+            <input type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Search' />
             <details>
                 <summary>Sorting</summary>
                 <button onClick={() => setSort("desc")} >Max - Min</button>

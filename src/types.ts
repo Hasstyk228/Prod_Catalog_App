@@ -22,16 +22,17 @@ export interface Item {
 
 export interface MShopCart {
   cart: CartItem[];
+  setCart: (cart: CartItem[]) => void
   addToCart: (item: CartItem, action: 'add' | 'remove' | 'delete') => void;
   shopCart: boolean;
   setShopCart :(shopCart: boolean) => void;
 }
 
 export interface HeaderProps {
+  cart: CartItem[];
   shopCart: boolean;
   setShopCart :(shopCart: boolean) => void;
 }
-
 
 export interface Filter {
   select: string;

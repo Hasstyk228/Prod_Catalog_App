@@ -1,7 +1,6 @@
 import {MShopCart} from '../../../types'
 
-function MShopCarts ({cart ,addToCart , shopCart, setShopCart} : MShopCart) {
-
+function MShopCarts ({cart, setCart ,addToCart , shopCart, setShopCart} : MShopCart) {
 
   /*--------Add--------*/
   const addProd = (itemId: number) => {
@@ -57,8 +56,9 @@ function MShopCarts ({cart ,addToCart , shopCart, setShopCart} : MShopCart) {
             {cart.length > 0 && (
                 <p className='summ' style={{fontWeight:'bold', textAlign:'center'}}>
                     Total: {cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(1)} $
-                </p>
-            )}        
+                </p>               
+            )}
+            {cart.length > 0 ? <button className='delete_cart' onClick={() => setCart([])} >Delete Cart</button> : '' }      
         </div>
       </section>
     </div>

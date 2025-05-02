@@ -1,6 +1,5 @@
 import {Item} from '../../../types';
 
-
 function Items ({users ,addToCart }: Item) {
 
     return (
