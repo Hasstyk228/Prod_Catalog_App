@@ -1,16 +1,18 @@
 import Home from "./components/pages/home/home";
 import { Routes, Route } from 'react-router-dom';
-import ShopingCart from "./components/pages/shoping_cart/shoping_cart";
+import { useState } from "react";
 import Header from "./components/elements/header/header";
 
 
 function App() {
+  
+    const [shopCart,setShopCart] = useState<boolean>(true)
+
   return (
     <div className="main">
-    <Header />
+    <Header shopCart={shopCart} setShopCart={setShopCart}/>
     <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shoping_cart" element={<ShopingCart/>} />
+        <Route path="/" element={<Home shopCart={shopCart} setShopCart={setShopCart} />}/>
     </Routes>
     </div>
     

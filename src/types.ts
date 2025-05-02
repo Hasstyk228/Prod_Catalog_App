@@ -23,6 +23,13 @@ export interface Item {
 export interface MShopCart {
   cart: CartItem[];
   addToCart: (item: CartItem, action: 'add' | 'remove' | 'delete') => void;
+  shopCart: boolean;
+  setShopCart :(shopCart: boolean) => void;
+}
+
+export interface HeaderProps {
+  shopCart: boolean;
+  setShopCart :(shopCart: boolean) => void;
 }
 
 

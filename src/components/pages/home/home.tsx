@@ -1,18 +1,17 @@
 import Items from "../../elements/items/items"
-import {User ,CartItem} from '../../../types'
+import {User ,CartItem , HeaderProps} from '../../../types'
 import { useEffect, useState } from "react";
 import Filters from "../../elements/filters/filters";
 import MShopCarts from "../../elements/menu_shop_cart/MShopCarts";
 
-function Home () {
+function Home ({shopCart, setShopCart}:HeaderProps) {
     const [users,setUsers] = useState<User[]>([]);
     const [load,setLoad] = useState<boolean> (true)
     const [error,setError] = useState<string | null> (null)
     const [select, setSelect] = useState<string>("all");
     const [sort, setSort] = useState<'asc' | 'desc'> ('desc');
     const [search, setSearch] = useState<string>("");
-    const [cart, setCart] = useState<CartItem[]>([]);
-    
+    const [cart, setCart] = useState<CartItem[]>([]);    
 
     useEffect(() => {
   
@@ -81,7 +80,7 @@ function Home () {
       <>
       <Filters select={select} setSelect={setSelect} sort={sort} setSort={setSort} search={search} setSearch={setSearch} />
       <Items users={searchUsers} addToCart={addToCart}/>
-      <MShopCarts cart={cart} addToCart={addToCart} />
+      <MShopCarts cart={cart} addToCart={addToCart} shopCart={shopCart} setShopCart={setShopCart} />
       </>
     )
 }

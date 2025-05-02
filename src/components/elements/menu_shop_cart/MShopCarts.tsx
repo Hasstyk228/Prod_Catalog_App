@@ -1,14 +1,17 @@
 import {MShopCart} from '../../../types'
 
-function MShopCarts ({cart ,addToCart} : MShopCart) {
+function MShopCarts ({cart ,addToCart , shopCart, setShopCart} : MShopCart) {
 
-      const addProd = (itemId: number) => {
+
+  /*--------Add--------*/
+  const addProd = (itemId: number) => {
     const item = cart.find((i) => i.id === itemId);
     if (item) {
-      addToCart(item, 'add');
+        addToCart(item, 'add');
     }
   };
 
+  /*------Remove------*/
   const removeCart = (itemId: number) => {
     const item = cart.find((c) => c.id === itemId);
     if (item) {
@@ -18,6 +21,7 @@ function MShopCarts ({cart ,addToCart} : MShopCart) {
     }
   };
 
+  /*------Delete------*/
   const deleteItem = (itemId: number) => {
     const item = cart.find((i) => i.id === itemId);
     if (item) {
@@ -25,9 +29,10 @@ function MShopCarts ({cart ,addToCart} : MShopCart) {
     }
   };
 
+
   return (
-    <div className="menu_shop_cart">
-      <h2>Your Cart</h2>
+    <div className="menu_shop_cart" style={{right: shopCart? '-400px' : '0px' , transition:'.3s'}}>
+      <h2>Your Cart <p onClick={() => setShopCart(true)} style={{cursor:"pointer"}}>x</p></h2> 
       <section className="section_cart">
         {cart.length > 0 ? (
           cart.map((item) => (
@@ -39,8 +44,8 @@ function MShopCarts ({cart ,addToCart} : MShopCart) {
                   <button onClick={() => removeCart(item.id)}>-</button>
                   <p>{item.quantity}</p>
                   <button onClick={() => addProd(item.id)}>+</button>
-                  <button onClick={() => deleteItem(item.id)}>Delete</button>
-                  <p>{`Price: ${(item.quantity * item.price).toFixed(2)}$`}</p>
+                  <p>{`${(item.quantity * item.price).toFixed(2)}$`}</p>
+                  <button onClick={() => deleteItem(item.id)}></button>
                 </div>
               </div>
             </div>

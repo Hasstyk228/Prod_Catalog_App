@@ -7,11 +7,18 @@ function Items ({users ,addToCart }: Item) {
         <div className='div_item'> 
             {users.map((user) => (
                 <div key={user.id} className='item'>
-                    <img src={user.image} alt=""/>
-                    <hr />
-                    <p>{user.title}</p>
-                    <p>Category: {user.category}</p>
-                    <h3>Price: {user.price +"$"}<button onClick={() => addToCart(user, 'add')}>Add</button></h3>
+                    <div><img src={user.image} alt=""/></div>
+                    <div className='info'>
+                        <p>{user.title}</p>
+                        <hr />
+                        <p>Category: {user.category}</p>
+                        <h3>
+                            {user.price +"$"}
+                            <button onClick={() => addToCart(user, 'add')} style={{cursor:"pointer"}}>
+                            Buy
+                            </button>
+                        </h3>
+                    </div>
                 </div>
             ))}
         </div>
