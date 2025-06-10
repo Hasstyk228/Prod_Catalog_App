@@ -50,7 +50,7 @@ function MShopCarts ({cart, setCart ,addToCart , shopCart, setShopCart} : MShopC
             </div>
           ))
         ) : (
-          <p style={{padding:'10px'}}>Cart is empty</p>
+          <p style={{padding:'10px', color:'rgb(150, 150, 150)'}}>Cart is empty</p>
         )}
         <div>        
             {cart.length > 0 && (

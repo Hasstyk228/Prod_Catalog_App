@@ -8,9 +8,8 @@ function Items ({users ,addToCart }: Item) {
                 <div key={user.id} className='item'>
                     <div><img src={user.image} alt=""/></div>
                     <div className='info'>
-                        <p>{user.title}</p>
-                        <hr />
                         <p>Category: {user.category}</p>
+                        <p>{user.title}</p>
                         <h3>
                             {user.price +"$"}
                             <button onClick={() => addToCart(user, 'add')} style={{cursor:"pointer"}}>

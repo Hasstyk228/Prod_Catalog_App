@@ -74,8 +74,8 @@ function Home () {
 
     return (
       <>
-      <Header shopCart={shopCart} setShopCart={setShopCart} cart={cart}/>
-      <Filters select={select} setSelect={setSelect} sort={sort} setSort={setSort} search={search} setSearch={setSearch} />
+      <Header shopCart={shopCart} setShopCart={setShopCart} cart={cart} search={search} setSearch = {setSearch}/>
+      <Filters select={select} setSelect={setSelect} sort={sort} setSort={setSort} />
       <Items users={searchUsers} addToCart={addToCart}/>
       <MShopCarts cart={cart} setCart={setCart} addToCart={addToCart} shopCart={shopCart} setShopCart={setShopCart} />
       </>

@@ -32,6 +32,8 @@ export interface HeaderProps {
   cart: CartItem[];
   shopCart: boolean;
   setShopCart :(shopCart: boolean) => void;
+  search: string;
+  setSearch : (search:string) => void;
 }
 
 export interface Filter {
@@ -39,6 +41,4 @@ export interface Filter {
   setSelect: (select: string) => void;
   sort: 'asc' | 'desc';
   setSort: (sort: 'asc' | 'desc') => void;
-  search: string;
-  setSearch : (search:string) => void;
 }

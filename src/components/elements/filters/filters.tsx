@@ -1,24 +1,25 @@
 import {Filter} from '../../../types'
 
-function Filters ({ setSelect , setSort , search , setSearch }: Filter) {
+function Filters ({ setSelect , setSort }: Filter) {
 
     return(
         <>
             <section className="section_filter">
-            <details>
-                <summary>Filter</summary>
-                <button onClick={() => setSelect("men's clothing")}>Men's clothing</button>
-                <button onClick={() => setSelect("women's clothing")}>Women's clothing</button>
-                <button onClick={() => setSelect("jewelery")}>Jewelery</button>
-                <button onClick={() => setSelect("electronics")}>Electronics</button>
-                <button onClick={() => setSelect("all")} >All</button>
-            </details>
-            <input type="text" value={search} onChange={(event) => setSearch(event.target.value)} placeholder='Search' />
-            <details>
-                <summary>Sorting</summary>
-                <button onClick={() => setSort("desc")} >Max - Min</button>
-                <button onClick={() => setSort("asc")}>Min - Max</button>
-                </details>
+                <div className='filters_one'>
+                    <div className='filter_name_1'>Filter</div>
+                    <button onClick={() => setSelect("all")} >All</button>
+                    <button onClick={() => setSelect("men's clothing")}>Men's clothing</button>
+                    <button onClick={() => setSelect("women's clothing")}>Women's clothing</button>
+                    <button onClick={() => setSelect("jewelery")}>Jewelery</button>
+                    <button onClick={() => setSelect("electronics")}>Electronics</button>
+                </div>
+
+                <div className='filters_two'>
+                    <button onClick={() => setSort("desc")} >Max - Min</button>
+                    <button onClick={() => setSort("asc")}>Min - Max</button>
+                    <div className='filter_name_2'>Sorting</div>
+
+                </div>
             </section>
         </>
     )
